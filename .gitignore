@@ -1,105 +1,73 @@
-## Git Ignore Temporary files
-
-#########################
 # Build results
-#########################
-[Bb]in/
-[Oo]bj/
-artifacts/
-build/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
 x64/
 x86/
-*.dll
-*.exe
-*.app
-*.pdb
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
 
-
-#########################
-# Visual Studio
-#########################
+# Visual Studio 2015/2017 cache/options directory
 .vs/
+
+# User-specific files
+*.rsuser
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
-*.dbmdl
-*.cache
-*.sdf
-*.sln.ide
 
-
-#########################
-# JetBrains Rider
-#########################
-.idea/
-*.sln.iml
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/.idea.*
-
-
-#########################
-# ASP.NET Core
-#########################
-*.publish.xml
-*.deps.json
-*.runtimeconfig.json
-*.ApplicationInsights.config
-
-
-# User secrets & local settings (do not share in Git)
-secrets.json
-appsettings.Development.json
-appsettings.Local.json
-
-
-#########################
-# Entity Framework Core
-#########################
-# Allow Migrations folder and .cs files (DO NOT ignore these)
-# But ignore snapshot if regenerating automatically
-Migrations/*Snapshot.cs
-
-
-#########################
-# SQL Server LocalDB (keep code DB schema, ignore physical files)
-#########################
+# Database files (LocalDB)
 *.mdf
 *.ldf
+*.ndf
 
+# Connection strings and secrets
+appsettings.Development.json
+appsettings.Production.json
+**/appsettings.*.json
+!appsettings.json
 
-#########################
-# Logs and diagnostics
-#########################
-*.log
-*.tlog
+# User secrets
+secrets.json
 
+# Entity Framework
+Migrations/
 
-#########################
-# Others
-#########################
-*.vspscc
-*.vssscc
-*.DS_Store
-Thumbs.db
-desktop.ini
+# JetBrains Rider
+.idea/
+*.sln.iml
 
-# Optional: ignore backups
-*.bak
-*.orig
-*.tmp
-
-# dotCover
-*.dotCover
-
-# Azure Pipelines
-.vsts/
-
-# .NET Core
-project.lock.json
-project.fragment.lock.json
-artifacts/
-
-# NPM
+# Node modules (if using npm)
 node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
