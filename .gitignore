@@ -37,9 +37,6 @@ appsettings.Production.json
 # User secrets
 secrets.json
 
-# Entity Framework
-Migrations/
-
 # JetBrains Rider
 .idea/
 *.sln.iml
