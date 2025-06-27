@@ -18,6 +18,6 @@ namespace EPC.Models
         public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
         
         [NotMapped]
-        public string FullName => $"{FirstName} {LastName}";
+        public string FullName => $"{FirstName} {LastName}".Trim();
     }
 }

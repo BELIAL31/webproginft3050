@@ -1,0 +1,80 @@
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Price List";
+}
+
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="display-6 fw-bold">Price List</h1>
+            <p class="lead">Complete pricing for all our PC components</p>
+        </div>
+    </div>
+
+    <div class="card shadow">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Category</th>
+                            <th>Product Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Rating</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <span class="badge bg-secondary">@product.Category?.Name</span>
+                                </td>
+                                <td class="fw-bold">@product.Name</td>
+                                <td class="text-muted">@product.Description</td>
+                                <td class="fw-bold text-primary">$@product.Price.ToString("N2")</td>
+                                <td>
+                                    @if (product.StockQuantity > 10)
+                                    {
+                                        <span class="badge bg-success">In Stock (@product.StockQuantity)</span>
+                                    }
+                                    else if (product.StockQuantity > 0)
+                                    {
+                                        <span class="badge bg-warning">Low Stock (@product.StockQuantity)</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Out of Stock</span>
+                                    }
+                                </td>
+                                <td>
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        if (i <= product.AverageRating)
+                                        {
+                                            <i class="fas fa-star text-warning"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="far fa-star text-muted"></i>
+                                        }
+                                    }
+                                    <small>(@product.ReviewCount)</small>
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("Details", "Products", new { id = product.Id })" 
+                                       class="btn btn-sm btn-outline-primary">
+                                        View Details
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
